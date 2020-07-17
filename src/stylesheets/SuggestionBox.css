@@ -1,0 +1,40 @@
+.SuggestionBox {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 12px;
+    border: 2px solid #eeeeee;
+    cursor: pointer;
+}
+.SuggestionBox.-selected {
+    background-color: #ccc;
+}
+.SuggestionBox .title {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+}
+.SuggestionBox .bottom {
+    display: flex;
+}
+.SuggestionBox .labels {
+    flex: 1;
+    display: flex;
+}
+.SuggestionBox .label {
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+}
+.SuggestionBox .state {
+    text-transform: capitalize;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 14px;
+    font-size: 0.8em;
+}
+.SuggestionBox .state.-open {
+    background-color: green;
+}
+.SuggestionBox .state.-closed {
+    background-color: red;
+}
