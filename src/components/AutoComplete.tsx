@@ -29,7 +29,7 @@ export default function AutoComplete(props: Props) {
       }
     );
     return () => subscription.unsubscribe();
-  });
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -42,6 +42,9 @@ export default function AutoComplete(props: Props) {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (suggestions.length === 0) {
+      return false;
+    }
     // Up Key
     if (e.keyCode === 38) {
       e.preventDefault();

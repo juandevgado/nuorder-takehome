@@ -24,11 +24,11 @@ export const getSuggestions = (
   subject: BehaviorSubject<string>
 ): Observable<[]> => {
   return subject.pipe(
-    debounceTime(500),
-    distinctUntilChanged(),
-    filter(v => v.length > 2),
-    map(getApiUrl),
-    switchMap(url => ajax(url)),
-    map(transformResponse)
+    debounceTime(500), // emit after user stop typing for 500ms
+    distinctUntilChanged(), // emit if current value different than last
+    filter(v => v.length > 2), // emit when 3 or more characters typed
+    map(getApiUrl), // form api url
+    switchMap(url => ajax(url)), // latest data from stream
+    map(transformResponse) // form object with required data
   );
 };
