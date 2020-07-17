@@ -33,6 +33,7 @@ export default function AutoComplete(props: Props) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+    setSuggestions([]);
     setSelectedSuggestion(0);
     subject$.next(e.target.value);
   };
